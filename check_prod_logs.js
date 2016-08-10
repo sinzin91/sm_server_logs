@@ -69,6 +69,8 @@ var _scanLogFile = (prodServer, stdout) => {
     _pageContainsCaptcha(q);
     _failEmit(q);
     _cssSelectorWasNotFound(q);
+    _interactionFailedDuringExecution(q);
+    _unableToGetPhantomJS(q);
 }
 
 function QUERIES(prodServer, searchResultProcessed) {
