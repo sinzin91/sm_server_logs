@@ -85,7 +85,7 @@ var _scanLogFile = (prodServer, stdout, searchTerm, clb) => {
     // });
     json2csv({ data: jsonOutputAggregate, fields: fields }, function(err, csv) {
       if (err) console.log(err);
-      fs.writeFile('file.csv', csv, function(err) {
+      fs.writeFile('output.csv', csv, function(err) {
         if (err) throw err;
         console.log('file saved');
         console.log(csv);
@@ -371,9 +371,8 @@ var parser = parse({delimiter: ','}, function (err, data) {
     searchTerms.push(data[i][0]);
   }
   console.log(searchTerms);
-  // searchTerms.map((searchTerm) => {
-  //   _findWhichServer(searchTerm);
-  // });
+
+  // batch input into batches of 10 and iterate
   const MAX_CONCUR = 10;
   var elmLeft = searchTerms.length,
       pos = 0,
@@ -414,43 +413,6 @@ var parser = parse({delimiter: ','}, function (err, data) {
     }
   );
 
-  // while (elmLeft > 0 && !flag) {
-  //
-  // }
-
-  // for (j = 0; j < searchTerms.length; j++) {
-  //   () => {
-  //       setTimeout(() => {
-  //       debugger
-  //       _findWhichServer(searchTerms[j]);
-  //     }, 5000);
-  //   }();
-  // }
-
-  // var s = searchTerms;
-  // setTimeout(() => {
-  //   debugger
-  //   _findWhichServer(s[1])
-  // }, 5000);
-
-
-  // async.waterfall([
-  //   (cb)=>{
-  //     _findWhichServer(searchTerms[0], cb);
-  //     debugger
-  //     cb();
-  //   },
-  //   (cb)=>{
-  //     _findWhichServer(searchTerms[1], cb);
-  //     debugger
-  //     console.log('there');
-  //   }
-  // ])
-  // async.series(searchTerms, function(searchTerm) {
-  //   _findWhichServer(searchTerm);
-  //   //cb();
-  //   debugger
-  // });
 })
 fs.createReadStream(inputFile).pipe(parser);
 
