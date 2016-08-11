@@ -3,6 +3,8 @@
 ## setup
 - Download this repo: `git clone https://github.com/sinzin91/sm_server_logs.git`
 - install node packages: `npm i`
+- These scripts SSH into the servers so you'll need to configure your `~/.ssh/config`.  
+Set the hostname to `prod1, prod2, prod3` for production servers 1 through 3 respectively.
 
 ## check_prod_log.js
 This script scans the latest production log
