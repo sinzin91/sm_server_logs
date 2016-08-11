@@ -1,4 +1,5 @@
 # Scripts to scan Wiser topology server logs
+These scripts provide an overview of how a scraper is performing.
 
 ## setup
 - Download this repo: `git clone https://github.com/sinzin91/sm_server_logs.git`
